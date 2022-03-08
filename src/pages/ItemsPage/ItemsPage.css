@@ -1,0 +1,22 @@
+.titleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.createCardButton {
+    background-color: orange;
+    border: none;
+    margin-left: 20px;
+}
+
+.createCardButton:hover {
+    background-color: rgb(255, 190, 68);
+}
+
+
+.itemsPageModal {
+    background-color: rgb(48, 48, 48);
+    color: white
+}

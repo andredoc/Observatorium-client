@@ -1,0 +1,28 @@
+.item-liked{
+    color: red;
+}
+
+.item-not-liked{
+    color: white;    
+}
+
+.likes-number-icon{
+    text-align: right;
+    color: red
+}
+
+.likes {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detailsTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editButton {
+    display: inline-block;
+    margin-right: 10px;
+}

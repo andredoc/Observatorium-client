@@ -1,0 +1,25 @@
+.signupForm {
+    background-color: rgb(48, 48, 48);
+    padding: 20px 20px;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 1px 2px 10px 3px rgb(43, 222, 235);
+
+}
+
+.signupFormControl:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgb(94, 244, 255);
+    background-color: rgb(48, 48, 48);
+    color: white;
+}
+
+.signupFormButton {
+    background-color: rgb(43, 222, 235);
+    border: none;
+    color: black;
+}
+
+.signupFormButton:hover {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgb(94, 244, 255);
+    background-color:rgba(43, 222, 235, 0.3)
+}

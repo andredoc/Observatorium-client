@@ -1,0 +1,72 @@
+.top-section-container {
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  top: 60;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  padding-top: 13%;
+  z-index: 99;
+}
+
+.capitalize{
+  font-size: 70px;
+}
+
+.logo {
+  margin: 100px;
+  color: #fff;
+  font-weight: 800;
+  font-size: 80px;
+}
+ 
+.slogan {
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+  font-size: 30px;
+  margin-top: 10px;
+  text-align: justify
+}
+  
+.paragraph {
+  margin: 0;
+  margin-top: 3em;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+  max-width: 30%;
+  text-align: center;
+}
+ 
+.planet-button {
+  outline: none;
+  border: none;
+  background-color: #27b927;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 8px 2em;
+  margin-top: 3em;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 350ms ease-in-out;
+}
+
+.planet-button:hover {
+    background-color: transparent;
+    border: 2px solid #27b927;
+}
+ 
+.made-by {
+  color: #fff;
+  position: fixed;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+ 
