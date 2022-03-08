@@ -1,9 +1,30 @@
-import XYZ from "ol/source/XYZ"
-import WMTSTileGrid from "ol/tilegrid/WMTS"
-import {Icon, Style} from "ol/style"
-import eventMarker24 from "./assets/images/event-marker-64-47-24.png"
-import Feature from "ol/Feature"
-import Point from "ol/geom/Point"
+import XYZ from "ol/source/XYZ";
+import WMTSTileGrid from "ol/tilegrid/WMTS";
+import { Icon, Style } from "ol/style";
+import {
+    dustHaze,
+    seaLakeIce,
+    manmade,
+    severeStorms,
+    snow,
+    volcanoes,
+    waterColor,
+    wildfires
+} from "./assets/images/map"
+
+import Feature from "ol/Feature";
+import Point from "ol/geom/Point";
+
+export const mapMarkers = {
+    dustHaze,
+    seaLakeIce,
+    manmade,
+    severeStorms,
+    snow,
+    volcanoes,
+    waterColor,
+    wildfires
+}
 
 const defaultTileGridOptions = {
     origin: [-180, 90],
@@ -26,7 +47,7 @@ export const formattedCurrentDate = () => new Date().toLocaleDateString().split(
 
 export const baseLayerConfig = new XYZ({
     /*url : 'https://maps.ecere.com/ogcapi/collections/blueMarble/map/tiles/WorldCRS84Quad'*/ //in case api.maptiler doesnt works
-    url : `https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=${process.env.REACT_APP_MAPTILER_API_KEY}`,
+    url: `https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=${process.env.REACT_APP_MAPTILER_API_KEY}`,
     tileSize: 512
 })
 export const wmtsTileGrid = new WMTSTileGrid(defaultTileGridOptions)
@@ -43,19 +64,23 @@ export const presipitationRateLayer = {
     showLayer: false
 }
 
-export const createMapMarkers = (events) => {
-    const iconStyle = new Style({
+const createIconStyle = (categoryId) => {
+    return new Style({
         image: new Icon({
             anchorXUnits: 'fraction',
             anchorYUnits: 'pixels',
-            src: eventMarker24
+            src: mapMarkers[categoryId]
         })
     })
+}
 
-    const markers = events.map(earthEvt => {
-        const {geometry} = earthEvt
+export const createMapMarkers = (events) => {
+    const markers = events.map((earthEvt) => {
+        const { geometry, categories } = earthEvt
+        const iconStyle = createIconStyle(categories[0].id)
+
         let feature = new Feature({
-            geometry: new Point(geometry[geometry.length-1].coordinates)
+            geometry: new Point(geometry[geometry.length - 1].coordinates)
         })
         feature.setStyle(iconStyle)
         return feature

@@ -1,5 +1,5 @@
-import {useEffect, useState} from "react"
-import {Container, Row, Col, Form} from 'react-bootstrap'
+import { useEffect, useState } from "react"
+import { Container, Row, Col, Form } from 'react-bootstrap'
 
 import { get } from "ol/proj"
 import {
@@ -13,9 +13,9 @@ import {
 import eonetService from "../../services/Nasa/eonet.service"
 
 import Map from "../../components/Map/Map"
-import { MapLayers, MapTileLayer, VectorLayer} from "../../components/MapLayers"
-import {wmts, vector} from "../../source"
-import {MapControls, FullScreenControl} from "../../components/MapControls"
+import { MapLayers, MapTileLayer, VectorLayer } from "../../components/MapLayers"
+import { wmts, vector } from "../../source"
+import { MapControls, FullScreenControl } from "../../components/MapControls"
 
 
 function EarthPage() {
@@ -24,26 +24,26 @@ function EarthPage() {
     const [layers, setLayers] = useState([presipitationRateLayer])
     const [eventsMarkers, setEventsMarkers] = useState([])
     const [selectedEvent, setSelectedEvent] = useState({})
-    const [center, setCenter] = useState([0,0])
+    const [center, setCenter] = useState([0, 0])
     const [zoom, setZoom] = useState(1)
     const [mapProj, setMapProj] = useState(get("EPSG:4326"))
 
-    useEffect(()=>{
+    useEffect(() => {
         eonetService
             .getEvents({
                 status: 'open',
-                limit: 50,
-                start : formattedCurrentDate()
+                limit: 20,
+                start: formattedCurrentDate()
             })
-            .then(({data}) =>{
-                const {events} = data
+            .then(({ data }) => {
+                const { events } = data
                 setEvents(events)
             })
     }, [])
-    
-    useEffect(()=> {
+
+    useEffect(() => {
         drawMarkers()
-    },[events])
+    }, [events])
 
     const drawMarkers = () => {
         const markers = createMapMarkers(events)
@@ -51,19 +51,25 @@ function EarthPage() {
     }
 
 
-    const handleEarthEventClick = (earthEvt)=>{
-/**
- * Event model:
- *  id: string, title: string, link: string, closed: string, categories: [], sources:[], geometry:[]
- * **/
-        setSelectedEvent(earthEvt)
+    const handleEarthEventClick = (evt) => {
+        /**
+         * Event model:
+         *  id: string, title: string, link: string, closed: string, categories: [], sources:[], geometry:[]
+         * **/
+        const earthEvtId = evt.target.value
+        const selectedEarthEvent = events.filter(({ id }) => id === earthEvtId)[0]
+        const { geometry } = selectedEarthEvent
+        const newCenterArray = geometry[geometry.length - 1].coordinates
+        setSelectedEvent(selectedEarthEvent)
+        setCenter(newCenterArray)
+        setZoom(4)
 
         eonetService
-            .getLayers(earthEvt.categories[0].id)
+            .getLayers(selectedEarthEvent.categories[0].id)
             .then(response => {
                 const layers = response.data.categories[0].layers
-                    .filter(({serviceTypeId}) => serviceTypeId.indexOf('WMTS')>-1)
-                    .map(({name: layer, serviceUrl, serviceTypeId, parameters}, index) => {
+                    .filter(({ serviceTypeId }) => serviceTypeId.indexOf('WMTS') > -1)
+                    .map(({ name: layer, serviceUrl, serviceTypeId, parameters }, index) => {
 
                         serviceUrl = serviceUrl.indexOf('gibs.earthdata.nasa.gov') > -1
                             ? 'https://gibs-{a-c}.earthdata.nasa.gov/wmts/epsg4326/best/wmts.cgi'
@@ -89,7 +95,7 @@ function EarthPage() {
     const toggleLayerVisibility = (layerVisibility) => {
 
         const updatedLayersVisibility = layers.map(layer => {
-            if(layer.id === layerVisibility.id) layer.showLayer = !layer.showLayer
+            if (layer.id === layerVisibility.id) layer.showLayer = !layer.showLayer
             return layer
         })
 
@@ -99,21 +105,21 @@ function EarthPage() {
     return (
         <>
             <Form>
-                    {
-                        layers.map((layer) => {
-                            return (
-                                <Form.Check
-                                    key={`inline-switch-${layer.id}`}
-                                    inline
-                                    type="switch"
-                                    id={`inline-switch-${layer.id}`}
-                                    label={layer.config.layer}
-                                    checked={layer.showLayer}
-                                    onChange={() => toggleLayerVisibility(layer)}
-                                />
-                            )
-                        } )
-                    }
+                {
+                    layers.map((layer) => {
+                        return (
+                            <Form.Check
+                                key={`inline-switch-${layer.id}`}
+                                inline
+                                type="switch"
+                                id={`inline-switch-${layer.id}`}
+                                label={layer.config.layer}
+                                checked={layer.showLayer}
+                                onChange={() => toggleLayerVisibility(layer)}
+                            />
+                        )
+                    })
+                }
             </Form>
             <Map
                 center={center}
@@ -125,28 +131,28 @@ function EarthPage() {
             >
                 <MapLayers>
                     <MapTileLayer key="base-1" source={baseLayerConfig} />
-                    { layers.map( layer => {
+                    {layers.map(layer => {
                         return (
-                          layer.showLayer && (<MapTileLayer key={layer.id} source={wmts(layer.config)} />)
+                            layer.showLayer && (<MapTileLayer key={layer.id} source={wmts(layer.config)} />)
                         )
                     })}
-                    <VectorLayer source={vector({ features: eventsMarkers })}/>
+                    <VectorLayer source={vector({ features: eventsMarkers })} />
                 </MapLayers>
                 <MapControls>
                     <FullScreenControl />
                 </MapControls>
             </Map>
             <Container>
-                <Row>
-                    {events.map(earthEvt => (
-                        <Col key={earthEvt.id}  md={4} onClick={()=> handleEarthEventClick(earthEvt)} style={{cursor: 'pointer'}}>
-                            <h5><b>Event ID : </b>{earthEvt.id}</h5>
-                            <h5><b>Title : </b>{earthEvt.title}</h5>
-                            <h5><b>Category ID: </b>{earthEvt.categories[0].id}</h5>
-                            <hr/>
-                        </Col>
-                    ))}
-                </Row>
+                <Form>
+                    <Form.Group className="mb-3">
+                        <Form.Label htmlFor="earthEventsList">Earth Events List</Form.Label>
+                        <Form.Select id="earthEventsList" onChange={handleEarthEventClick}>
+                            {events.map(earthEvt => (
+                                <option key={earthEvt.id} value={earthEvt.id}>{earthEvt.title}</option>
+                            ))}
+                        </Form.Select>
+                    </Form.Group>
+                </Form>
             </Container>
         </>
     )
