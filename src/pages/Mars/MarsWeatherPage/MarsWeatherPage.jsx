@@ -29,11 +29,11 @@ function MarsWeatherPage() {
                                     style={{ height: 640, objectFit: "cover" }}
                                 />
                                 <Carousel.Caption>
-                                    <h3 style={{ fontSize: "8em" }}>Sol {soles.sol}</h3>
-                                    <p style={{ fontSize: "5em" }}>Earth Date: {soles.terrestrial_date}</p>
+                                    <h3 style={{ fontSize: "4em" }}>Sol {soles.sol}</h3>
+                                    <p style={{ fontSize: "3em" }}>Earth Date: {soles.terrestrial_date}</p>
                                     <hr />
-                                    <p style={{ fontSize: "3em" }}>High: {soles.max_temp}° C</p>
-                                    <p style={{ fontSize: "3em" }}>Low: {soles.min_temp}° C</p>
+                                    <p style={{ fontSize: "2em" }}>High: {soles.max_temp}° C</p>
+                                    <p style={{ fontSize: "2em" }}>Low: {soles.min_temp}° C</p>
                                 </Carousel.Caption>
                             </Carousel.Item>
                         )

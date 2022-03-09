@@ -22,7 +22,12 @@ const Footer = ({ path }) => {
         return null
     } else if (pathname === "/admin") {
         return null
+    } else if (pathname === "/login") {
+        return null
+    } else if (pathname === "/signup") {
+        return null
     } 
+
     return (<footer>Created by André Documet, Ricardo Ronchetti y Roberto Cadenas</footer>)
 }
 

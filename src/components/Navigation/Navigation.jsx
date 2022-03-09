@@ -72,7 +72,7 @@ function Navigation() {
 
 
                                     <Dropdown.Divider />
-                                    <Dropdown.Item onClick={logOutUser}>Cerrar sesión</Dropdown.Item>
+                                    <Dropdown.Item onClick={logOutUser}>Log Out</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </>

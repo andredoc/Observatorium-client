@@ -15,6 +15,7 @@ function Earth() {
     [EarthDayMap, EarthNormalMap, EarthSpecularMap, EarthCloudsMap]
   );
 
+
   const earthRef = useRef();
   const cloudsRef = useRef();
 
@@ -56,14 +57,14 @@ function Earth() {
           metalness={0.4}
           roughness={0.7}
         />
-        {/* <OrbitControls
+        <OrbitControls
           enableZoom={true}
           enablePan={true}
           enableRotate={true}
           zoomSpeed={0.6}
           panSpeed={0.5}
           rotateSpeed={0.4}
-        /> */}
+        />
       </mesh>
     </>
   );

@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber"
 import Earth from "../../components/Earth/Earth"
 import IntroductionSection from "../../components/IntroductionSection/IntroductionSection"
