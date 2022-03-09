@@ -47,7 +47,7 @@ function Navigation() {
                                 <NavLink to="/mars" className="navlink">
                                     <Nav.Link as="span">MARS</Nav.Link>
                                 </NavLink>
-                                <NavLink to="/earth-threed" className="navlink">
+                                <NavLink to="/apod" className="navlink">
                                     <Nav.Link as="span">PIC OF THE DAY</Nav.Link>
                                 </NavLink>
                             </Nav>

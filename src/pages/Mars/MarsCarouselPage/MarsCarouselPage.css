@@ -1,0 +1,8 @@
+.carouselDiv {
+    width: 80%;
+    background-color: rgb(48, 48, 48);
+    padding: 10px 10px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 1px 2px 10px 3px rgb(43, 222, 235);
+}
