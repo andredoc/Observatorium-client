@@ -42,16 +42,16 @@ function EditCommentForm({ closeModal, comment, commentId, getComments }) {
 
     return (
         <>
-            <h1>Edit Comment form</h1>
+
 
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="comment">
                     <Form.Label>Comment</Form.Label>
-                    <Form.Control type="text" value={editCommentData.comment} onChange={handleInputChange} name="comment" />
+                    <Form.Control className="formControl" type="text" value={editCommentData.comment} onChange={handleInputChange} name="comment" />
                 </Form.Group>
 
                 <div className="d-grid gap-2">
-                    <Button variant="dark" type="submit" >Edit Comment</Button>
+                    <Button className="formButton" variant="dark" type="submit" >Edit Comment</Button>
                 </div>
 
             </Form >

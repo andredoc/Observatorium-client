@@ -160,10 +160,10 @@ function ItemDetailsPage({ refreshItems }) {
             
 
             <Modal show={showModal} onHide={handleModalClose} size="lg">
-                <Modal.Header closeButton>
+                <Modal.Header closeButton className="itemsPageModal">
                     <Modal.Title>Edit Item</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className="itemsPageModal">
                     <EditItemForm closeModal={handleModalClose} refreshItems={loadItem} item={itemDetails} />
                 </Modal.Body>
             </Modal>

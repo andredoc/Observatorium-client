@@ -133,10 +133,10 @@ function CommentBox() {
                 
             </Container>
             <Modal show={showModal} onHide={handleModalClose} size="lg">
-                <Modal.Header closeButton>
+                <Modal.Header closeButton className="itemsPageModal">
                     <Modal.Title>Edit Comment</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className="itemsPageModal">
                     <EditCommentForm closeModal={handleModalClose} comment={editComment.comment} commentId={editComment._id} getComments={getComments}/>
                 </Modal.Body>
             </Modal>

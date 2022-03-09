@@ -137,19 +137,19 @@ function UserItemsPage() {
 
 
             <Modal show={showModal} onHide={handleModalClose} size="lg">
-                <Modal.Header closeButton>
+                <Modal.Header closeButton className="itemsPageModal">
                     <Modal.Title>Edit Item</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className="itemsPageModal">
                     <EditItemForm closeModal={handleModalClose} refreshItems={loadItem} item={selectEditItem} />
                 </Modal.Body>
             </Modal>
 
             <Modal show={showCommentModal} onHide={handleCommentModalClose} sice="lg">
-                <Modal.Header closeButton>
+                <Modal.Header closeButton className="itemsPageModal">
                     <Modal.Title>Edit Comment</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className="itemsPageModal">
                     <EditCommentForm closeModal={handleCommentModalClose} comment={editComment?.comment} commentId={editComment?._id} getComments={loadComments} />
                 </Modal.Body>
             </Modal>

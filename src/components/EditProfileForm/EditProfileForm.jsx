@@ -63,20 +63,20 @@ function EditProfileForm({ closeModal }) {
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
                     <Form.Label>User</Form.Label>
-                    <Form.Control type="text" name="username" value={editProfile.username} onChange={handleInputChange} />
+                    <Form.Control className="formControl" type="text" name="username" value={editProfile.username} onChange={handleInputChange} />
                 </Form.Group>
 
                 <Form.Group controlId="itemImage" className="mb-3">
                     <Form.Label>Input Image</Form.Label>
-                    <Form.Control type="file" onChange={uploadProfileImage} />
+                    <Form.Control className="formControl" type="file" onChange={uploadProfileImage} />
                 </Form.Group>
 
                 <Form.Group className="mb-3">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name="password" value={editProfile.password} onChange={handleInputChange} />
+                    <Form.Control className="formControl" type="password" name="password" value={editProfile.password} onChange={handleInputChange} />
                 </Form.Group>
 
-                <Button variant="dark" type="submit" disabled={loadingImage} style={{ width: '100%' }}>{loadingImage ? "Wait a moment please..." : "Edit"}</Button>
+                <Button className="formButton" variant="dark" type="submit" disabled={loadingImage} style={{ width: '100%' }}>{loadingImage ? "Wait a moment please..." : "Edit"}</Button>
             </Form>
         </Container>
     )

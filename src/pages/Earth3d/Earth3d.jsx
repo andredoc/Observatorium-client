@@ -4,7 +4,10 @@ import Earth from "../../components/Earth/Earth"
 import IntroductionSection from "../../components/IntroductionSection/IntroductionSection"
 import "./Earth3d.css"
 
+// import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner"
+
 function Earth3dPage() {
+
     return (
         <>
             <div className="canvas-container">

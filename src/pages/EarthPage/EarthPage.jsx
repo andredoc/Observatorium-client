@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Container, Row, Col, Form } from 'react-bootstrap'
+import "./EarthPage.css"
 
 import { get } from "ol/proj"
 import {
@@ -121,6 +122,7 @@ function EarthPage() {
                     })
                 }
             </Form>
+            <div className="map">
             <Map
                 center={center}
                 setCenter={setCenter}
@@ -142,6 +144,8 @@ function EarthPage() {
                     <FullScreenControl />
                 </MapControls>
             </Map>
+            </div>
+
             <Container>
                 <Form>
                     <Form.Group className="mb-3">

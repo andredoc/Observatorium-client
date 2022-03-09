@@ -62,36 +62,35 @@ function EditItemForm({ closeModal, refreshItems, item }) {
 
     return (
         <>
-            <h1>Edit Item form</h1>
 
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="title">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" value={name} onChange={handleInputChange} name="name" />
+                    <Form.Control className="formControl" type="text" value={name} onChange={handleInputChange} name="name" />
                 </Form.Group>
 
                 <Form.Group controlId="itemImage" className="mb-3">
                     <Form.Label>Input Image</Form.Label>
-                    <Form.Control type="file" onChange={uploadItemImage} />
+                    <Form.Control className="formControl" type="file" onChange={uploadItemImage} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="description">
                     <Form.Label>Description</Form.Label>
-                    <Form.Control type="text" value={description} onChange={handleInputChange} name="description" />
+                    <Form.Control className="formControl" type="text" value={description} onChange={handleInputChange} name="description" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="length">
                     <Form.Label>Location</Form.Label>
-                    <Form.Control type="text" value={location} onChange={handleInputChange} name="location" />
+                    <Form.Control className="formControl" type="text" value={location} onChange={handleInputChange} name="location" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="inversions">
                     <Form.Label>Size</Form.Label>
-                    <Form.Control type="text" value={size} onChange={handleInputChange} name="size" />
+                    <Form.Control className="formControl" type="text" value={size} onChange={handleInputChange} name="size" />
                 </Form.Group>
 
                 <div className="d-grid gap-2">
-                    <Button variant="dark" type="submit" disabled={loadingImage}>{loadingImage ? "Wait a moment please..." : "Edit Item"}</Button>
+                    <Button className="formButton" variant="dark" type="submit" disabled={loadingImage}>{loadingImage ? "Wait a moment please..." : "Edit Item"}</Button>
                 </div>
 
             </Form >

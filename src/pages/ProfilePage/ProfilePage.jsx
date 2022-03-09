@@ -44,10 +44,10 @@ function ProfilePage() {
 
 
             <Modal show={showModal} onHide={handleModalClose} size="lg">
-                <Modal.Header closeButton>
+                <Modal.Header closeButton className="itemsPageModal">
                     <Modal.Title>Edit Profile</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className="itemsPageModal">
                     <EditProfileForm closeModal={handleModalClose} />
                 </Modal.Body>
             </Modal>
