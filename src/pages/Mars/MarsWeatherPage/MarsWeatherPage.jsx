@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import weatherService from "../../../services/weather.service"
 import { Carousel } from "react-bootstrap"
+import "./MarsWeatherPage.css"
 
 function MarsWeatherPage() {
 
@@ -15,28 +16,32 @@ function MarsWeatherPage() {
     }, [])
 
     return (
-        <Carousel fade>
-            {
-                weather.map((soles) => {
-                    return (
-                        <Carousel.Item key={soles.id} interval={1000}>
-                            <img
-                                className="d-block w-100"
-                                src="https://s.w-x.co/ron-miller-mars-channel-dust-storm_980x551.jpg"
-                                alt="picture"
-                            />
-                            <Carousel.Caption>
-                                <h3>Sol {soles.sol}</h3>
-                                <p>Earth Date: {soles.terrestrial_date}</p>
-                                <hr />
-                                <p>High: {soles.max_temp}° C</p>
-                                <p>Low: {soles.min_temp}° C</p>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                    )
-                })
-            }
-        </Carousel >
+        <div className="carouselDiv">
+            <Carousel fade>
+                {
+                    weather.map((soles) => {
+                        return (
+                            <Carousel.Item key={soles.id} interval={1000}>
+                                <img
+                                    className="d-block w-100"
+                                    src="https://s.w-x.co/ron-miller-mars-channel-dust-storm_980x551.jpg"
+                                    alt="picture"
+                                    style={{ height: 640, objectFit: "cover" }}
+                                />
+                                <Carousel.Caption>
+                                    <h3 style={{ fontSize: "8em" }}>Sol {soles.sol}</h3>
+                                    <p style={{ fontSize: "5em" }}>Earth Date: {soles.terrestrial_date}</p>
+                                    <hr />
+                                    <p style={{ fontSize: "3em" }}>High: {soles.max_temp}° C</p>
+                                    <p style={{ fontSize: "3em" }}>Low: {soles.min_temp}° C</p>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                        )
+                    })
+                }
+            </Carousel >
+        </div>
+
     )
 }
 
