@@ -15,7 +15,7 @@
     max-height: 100vh;
     max-width: 50vh;
     overflow: scroll;
-    background-color: rgb(54, 54, 54);
+    /* background-color: rgb(54, 54, 54); */
     border-radius: 20px;
     color: white;
     text-align: center;

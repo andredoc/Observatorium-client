@@ -16,32 +16,35 @@ function MarsWeatherPage() {
     }, [])
 
     return (
-        <div className="carouselDiv">
-            <Carousel fade>
-                {
-                    weather.map((soles) => {
-                        return (
-                            <Carousel.Item key={soles.id} interval={1000}>
-                                <img
-                                    className="d-block w-100"
-                                    src="https://s.w-x.co/ron-miller-mars-channel-dust-storm_980x551.jpg"
-                                    alt="picture"
-                                    style={{ height: 640, objectFit: "cover" }}
-                                />
-                                <Carousel.Caption>
-                                    <h3 style={{ fontSize: "8em" }}>Sol {soles.sol}</h3>
-                                    <p style={{ fontSize: "5em" }}>Earth Date: {soles.terrestrial_date}</p>
-                                    <hr />
-                                    <p style={{ fontSize: "3em" }}>High: {soles.max_temp}° C</p>
-                                    <p style={{ fontSize: "3em" }}>Low: {soles.min_temp}° C</p>
-                                </Carousel.Caption>
-                            </Carousel.Item>
-                        )
-                    })
-                }
-            </Carousel >
+        <div className="stars">
+            <div className="twinkling">
+                <div className="carouselDiv">
+                    <Carousel fade>
+                        {
+                            weather.map((soles) => {
+                                return (
+                                    <Carousel.Item key={soles.id} interval={1500}>
+                                        <img
+                                            className="d-block w-100"
+                                            src="https://s.w-x.co/ron-miller-mars-channel-dust-storm_980x551.jpg"
+                                            alt="picture"
+                                            style={{ height: 640, objectFit: "cover" }}
+                                        />
+                                        <Carousel.Caption>
+                                            <h3 style={{ fontSize: "6em" }}>Sol {soles.sol}</h3>
+                                            <p style={{ fontSize: "4em" }}>Earth Date: {soles.terrestrial_date}</p>
+                                            <hr />
+                                            <p style={{ fontSize: "2em" }}>High: {soles.max_temp}° C</p>
+                                            <p style={{ fontSize: "2em" }}>Low: {soles.min_temp}° C</p>
+                                        </Carousel.Caption>
+                                    </Carousel.Item>
+                                )
+                            })
+                        }
+                    </Carousel >
+                </div>
+            </div>
         </div>
-
     )
 }
 

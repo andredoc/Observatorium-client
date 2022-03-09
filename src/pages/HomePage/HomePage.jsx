@@ -26,28 +26,30 @@ function HomePage() {
 
     return (
         <div className="pictureDay">
-            {/* <div>
+            <div className="stars">
+                <div className="twinkling">
+                    {/* <div>
                 <img src={pictureDay.url} />
                 <h3>{pictureDay.title}</h3>
                 <p>{pictureDay.explanation}</p>
                </div> */}
-            {
-                !pictureDay ?
+                    {
+                        !pictureDay ?
 
-                    <LoadingSpinner />
+                            <LoadingSpinner />
 
-                    :
+                            :
 
-                    <div className="textDay">
-                        <h3>{pictureDay.title}</h3>
-                        <p>{pictureDay.explanation}</p>
-                        <br/><br/>
-                        <img src={pictureDay.url} />
-                    </div>
+                            <div className="textDay">
+                                <h3>{pictureDay.title}</h3>
+                                <p>{pictureDay.explanation}</p>
+                                <br /><br />
+                                <img src={pictureDay.url} />
+                            </div>
 
-            }
+                    }
 
-            {/* <Container>
+                    {/* <Container>
                 <Row className="justify-content-md-center">
                     <Col md={3}>
                         <Link to={`/earth`}>
@@ -69,8 +71,9 @@ function HomePage() {
                </Row>
            </Container> */}
 
+                </div>
+            </div>
         </div>
-
     )
 }
 

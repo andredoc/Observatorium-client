@@ -8,6 +8,8 @@ const Footer = ({ path }) => {
         return null
     } else if (pathname === "/item/:item_id") {
         return null
+    } else if (pathname === "/mars") {
+        return null
     } else if (pathname === "/mars/carousel") {
         return null
     } else if (pathname === "/mars/weather") {

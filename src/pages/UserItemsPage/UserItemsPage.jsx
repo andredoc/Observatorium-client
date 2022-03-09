@@ -1,4 +1,4 @@
-import {useState, useEffect, useContext} from "react"
+import { useState, useEffect, useContext } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { AuthContext } from "../../context/auth.context"
 import itemsService from "../../services/items.service"
@@ -19,8 +19,8 @@ function UserItemsPage() {
     const [showModal, setShowModal] = useState(false)
     const [showCommentModal, setShowCommentModal] = useState(false)
 
-    
-    
+
+
 
 
     const { user } = useContext(AuthContext)
@@ -36,42 +36,42 @@ function UserItemsPage() {
 
     const loadItem = () => {
         itemsService
-                .getUserItems(user._id)
-                .then(({ data }) => {
-                    setItem(data)
-                })
-                .catch(err => console.log(err))
+            .getUserItems(user._id)
+            .then(({ data }) => {
+                setItem(data)
+            })
+            .catch(err => console.log(err))
     }
 
     const deleteItem = (item) => {
         itemsService
-                .deleteItem(item._id)
-                .then(() => {
-                    navigate("/profile/userItems")
-                    loadItem()
-                })
-                .catch(err => console.log(err))
+            .deleteItem(item._id)
+            .then(() => {
+                navigate("/profile/userItems")
+                loadItem()
+            })
+            .catch(err => console.log(err))
     }
 
     const loadComments = () => {
         ratingService
-                .getUserComments(user._id)
-                .then(({ data }) => {
-                    setComments(data)
-                })
-                .catch(err => console.log(err))
+            .getUserComments(user._id)
+            .then(({ data }) => {
+                setComments(data)
+            })
+            .catch(err => console.log(err))
     }
 
     const deleteComment = (commentId) => {
         ratingService
-                .deleteComment(commentId)
-                .then(() => {
-                    navigate("/profile/userItems")
-                    loadComments()
-                })
+            .deleteComment(commentId)
+            .then(() => {
+                navigate("/profile/userItems")
+                loadComments()
+            })
     }
 
-    
+
 
 
     const handleModalClose = () => setShowModal(false)
@@ -88,73 +88,76 @@ function UserItemsPage() {
     }
 
 
-    return (  
-        <div className="allPage">
+    return (
+        <div className="stars">
+            <div className="twinkling">
+                <div className="allPage">
 
-            <h1>User Page</h1>
+                    <h1>User Page</h1>
 
-            <hr/>
+                    <hr />
 
-            <div className="allDiv">
+                    <div className="allDiv">
 
-                <div className="col-4 allItems">
-                <h2>User items</h2>
-                <p>{items?.map(item => {
-                    return (
-                        <>
-                            <Row key={item?._id}>
-                                <p>{item?.name}</p>
-                                <img className="mx-auto" src={item?.img} alt={item?.name} style={{ width: "90px" }} />
-                                <p>{item?.description}</p>
-                                {user && user?._id === item?.owner && <Button className="mx-auto button" variant="warning" onClick={() => handleModalOpen(item)}>Edit</Button>}
-                                {user && user?._id === item?.owner && <Button className="mx-auto button" variant="danger" onClick={() => deleteItem(item)}>Delete</Button>}
-                                <hr/>
-                            </Row>
-                        </>
-                        
-                    )
-                })}</p>
+                        <div className="col-4 allItems">
+                            <h2>User items</h2>
+                            <p>{items?.map(item => {
+                                return (
+                                    <>
+                                        <Row key={item?._id}>
+                                            <p>{item?.name}</p>
+                                            <img className="mx-auto" src={item?.img} alt={item?.name} style={{ width: "90px" }} />
+                                            <p>{item?.description}</p>
+                                            {user && user?._id === item?.owner && <Button className="mx-auto button" variant="warning" onClick={() => handleModalOpen(item)}>Edit</Button>}
+                                            {user && user?._id === item?.owner && <Button className="mx-auto button" variant="danger" onClick={() => deleteItem(item)}>Delete</Button>}
+                                            <hr />
+                                        </Row>
+                                    </>
+
+                                )
+                            })}</p>
+                        </div>
+
+                        <div className="col-4 allItems">
+                            <h2>User Comments</h2>
+                            <p>{comments?.map(comment => {
+                                return (
+                                    <>
+                                        <Row key={comment?._id}>
+                                            <p>{comment?.comment}</p>
+                                            {user && <Button className="mx-auto button" variant="warning" onClick={() => handleCommentModalOpen(comment)}>Edit</Button>}
+                                            {user && <Button className="mx-auto button" variant="danger" onClick={() => deleteComment(comment._id)}>Delete</Button>}
+                                            <hr />
+                                        </Row>
+                                    </>
+                                )
+                            })}</p>
+                        </div>
+
+                    </div>
+
+
+
+                    <Modal show={showModal} onHide={handleModalClose} size="lg">
+                        <Modal.Header closeButton className="itemsPageModal">
+                            <Modal.Title>Edit Item</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body className="itemsPageModal">
+                            <EditItemForm closeModal={handleModalClose} refreshItems={loadItem} item={selectEditItem} />
+                        </Modal.Body>
+                    </Modal>
+
+                    <Modal show={showCommentModal} onHide={handleCommentModalClose} sice="lg">
+                        <Modal.Header closeButton className="itemsPageModal">
+                            <Modal.Title>Edit Comment</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body className="itemsPageModal">
+                            <EditCommentForm closeModal={handleCommentModalClose} comment={editComment?.comment} commentId={editComment?._id} getComments={loadComments} />
+                        </Modal.Body>
+                    </Modal>
                 </div>
-
-                <div className="col-4 allItems">
-                <h2>User Comments</h2>
-                <p>{comments?.map(comment => {
-                    return (
-                        <>
-                            <Row key={comment?._id}>
-                                <p>{comment?.comment}</p>
-                                {user && <Button className="mx-auto button" variant="warning" onClick={() => handleCommentModalOpen(comment)}>Edit</Button> }
-                                {user && <Button className="mx-auto button" variant="danger" onClick={() => deleteComment(comment._id)}>Delete</Button>}
-                                <hr/>
-                            </Row>
-                        </>
-                    )
-                })}</p>
-                </div>
-
             </div>
-
-
-
-            <Modal show={showModal} onHide={handleModalClose} size="lg">
-                <Modal.Header closeButton className="itemsPageModal">
-                    <Modal.Title>Edit Item</Modal.Title>
-                </Modal.Header>
-                <Modal.Body className="itemsPageModal">
-                    <EditItemForm closeModal={handleModalClose} refreshItems={loadItem} item={selectEditItem} />
-                </Modal.Body>
-            </Modal>
-
-            <Modal show={showCommentModal} onHide={handleCommentModalClose} sice="lg">
-                <Modal.Header closeButton className="itemsPageModal">
-                    <Modal.Title>Edit Comment</Modal.Title>
-                </Modal.Header>
-                <Modal.Body className="itemsPageModal">
-                    <EditCommentForm closeModal={handleCommentModalClose} comment={editComment?.comment} commentId={editComment?._id} getComments={loadComments} />
-                </Modal.Body>
-            </Modal>
         </div>
-        
     )
 }
 

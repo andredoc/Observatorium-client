@@ -1,7 +1,6 @@
 import { useRef } from "react"
 import { useFrame, useLoader } from "@react-three/fiber"
 import { OrbitControls, Stars } from "@react-three/drei"
-import * as THREE from "three"
 import './Mars3D.css'
 
 import MarsMap from "../../assets/images/8k_mars.jpg"
@@ -28,7 +27,7 @@ function Mars3D() {
             <Stars
                 radius={300}
                 depth={60}
-                count={20000}
+                count={3000}
                 factor={7}
                 saturation={0}
                 fade={true}
