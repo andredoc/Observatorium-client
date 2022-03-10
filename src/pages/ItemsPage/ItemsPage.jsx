@@ -29,40 +29,45 @@ function ItemsPage() {
 
     const loadItems = () => {
         itemsService
-                .getAllItems()
-                .then(({ data }) => {
-                    setItems(data)
-                })
-                .catch(err => console.log(err))
-                
+            .getAllItems()
+            .then(({ data }) => {
+                setItems(data)
+            })
+            .catch(err => console.log(err))
+
     }
 
     const handleModalClose = () => setShowModal(false)
     const handleModalOpen = () => setShowModal(true)
 
     return (
+        
         <>
-            <Container>
-                <h1 className="titleContainer">
-                    Item Page
-                    {isLoggedIn && <Button className="createCardButton" onClick={handleModalOpen}>Create New Item</Button>}
-                </h1>
-                <ItemList items={currentCards} />
-                <Pagination
-                    cardsPerPage={cardsPerPage}
-                    totalCards={items.length}
-                    paginate={paginate}
-                />
-            </Container>
+            <div className="stars">
+                <div className="twinkling">
+                    <Container>
+                        <h1 className="titleContainer">
+                            Item Page
+                            {isLoggedIn && <Button className="createCardButton" onClick={handleModalOpen}>Create New Item</Button>}
+                        </h1>
+                        <ItemList items={currentCards} />
+                        <Pagination
+                            cardsPerPage={cardsPerPage}
+                            totalCards={items.length}
+                            paginate={paginate}
+                        />
+                    </Container>
 
-            <Modal show={showModal} onHide={handleModalClose} size="lg">
-                <Modal.Header closeButton className="itemsPageModal">
-                    <Modal.Title>New Item</Modal.Title>
-                </Modal.Header>
-                <Modal.Body className="itemsPageModal">
-                    <CreateItemForm closeModal={handleModalClose} refreshItems={loadItems} />
-                </Modal.Body>
-            </Modal>
+                    <Modal show={showModal} onHide={handleModalClose} size="lg">
+                        <Modal.Header closeButton className="itemsPageModal">
+                            <Modal.Title>New Item</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body className="itemsPageModal">
+                            <CreateItemForm closeModal={handleModalClose} refreshItems={loadItems} />
+                        </Modal.Body>
+                    </Modal>
+                </div>
+            </div>
         </>
     )
 }

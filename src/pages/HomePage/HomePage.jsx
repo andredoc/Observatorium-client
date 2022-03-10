@@ -20,12 +20,14 @@ function HomePage() {
 
     return (
         <div className="pictureDay">
-            {
-                !pictureDay ?
+            <div className="stars">
+                <div className="twinkling">
+                    {
+                        !pictureDay ?
 
-                    <LoadingSpinner />
+                            <LoadingSpinner />
 
-                    :
+                            :
 
                     <div className="textDay">
                         <h3>{pictureDay.title}</h3>
@@ -34,6 +36,8 @@ function HomePage() {
                         <img src={pictureDay.url} />
                     </div>
             }
+                </div>
+            </div>
         </div>
     )
 }
