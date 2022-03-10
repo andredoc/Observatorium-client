@@ -14,7 +14,7 @@ function PrivateRoute() {
     if(!isLoggedIn) {
         return <Navigate to="/signup"/>
     }
-
+    
     return <Outlet/>
 }
 

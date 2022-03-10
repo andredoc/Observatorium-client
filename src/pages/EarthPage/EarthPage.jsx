@@ -105,59 +105,63 @@ function EarthPage() {
 
     return (
         <>
-            <Form>
-                {
-                    layers.map((layer) => {
-                        return (
-                            <Form.Check
-                                key={`inline-switch-${layer.id}`}
-                                inline
-                                type="switch"
-                                id={`inline-switch-${layer.id}`}
-                                label={layer.config.layer}
-                                checked={layer.showLayer}
-                                onChange={() => toggleLayerVisibility(layer)}
-                            />
-                        )
-                    })
-                }
-            </Form>
-            <div className="map">
-            <Map
-                center={center}
-                setCenter={setCenter}
-                zoom={zoom}
-                projection={mapProj}
-                maxResolution={0.5625}
-                extent={[-180, -90, 180, 90]}
-            >
-                <MapLayers>
-                    <MapTileLayer key="base-1" source={baseLayerConfig} />
-                    {layers.map(layer => {
-                        return (
-                            layer.showLayer && (<MapTileLayer key={layer.id} source={wmts(layer.config)} />)
-                        )
-                    })}
-                    <VectorLayer source={vector({ features: eventsMarkers })} />
-                </MapLayers>
-                <MapControls>
-                    <FullScreenControl />
-                </MapControls>
-            </Map>
-            </div>
+            <div className="stars">
+                <div className="twinkling">
+                    <Form>
+                        {
+                            layers.map((layer) => {
+                                return (
+                                    <Form.Check
+                                        key={`inline-switch-${layer.id}`}
+                                        inline
+                                        type="switch"
+                                        id={`inline-switch-${layer.id}`}
+                                        label={layer.config.layer}
+                                        checked={layer.showLayer}
+                                        onChange={() => toggleLayerVisibility(layer)}
+                                    />
+                                )
+                            })
+                        }
+                    </Form>
+                    <div className="map">
+                        <Map
+                            center={center}
+                            setCenter={setCenter}
+                            zoom={zoom}
+                            projection={mapProj}
+                            maxResolution={0.5625}
+                            extent={[-180, -90, 180, 90]}
+                        >
+                            <MapLayers>
+                                <MapTileLayer key="base-1" source={baseLayerConfig} />
+                                {layers.map(layer => {
+                                    return (
+                                        layer.showLayer && (<MapTileLayer key={layer.id} source={wmts(layer.config)} />)
+                                    )
+                                })}
+                                <VectorLayer source={vector({ features: eventsMarkers })} />
+                            </MapLayers>
+                            <MapControls>
+                                <FullScreenControl />
+                            </MapControls>
+                        </Map>
+                    </div>
 
-            <Container>
-                <Form>
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor="earthEventsList">Earth Events List</Form.Label>
-                        <Form.Select id="earthEventsList" onChange={handleEarthEventClick}>
-                            {events.map(earthEvt => (
-                                <option key={earthEvt.id} value={earthEvt.id}>{earthEvt.title}</option>
-                            ))}
-                        </Form.Select>
-                    </Form.Group>
-                </Form>
-            </Container>
+                    <Container>
+                        <Form>
+                            <Form.Group className="mb-3">
+                                <Form.Label htmlFor="earthEventsList">Earth Events List</Form.Label>
+                                <Form.Select id="earthEventsList" onChange={handleEarthEventClick}>
+                                    {events.map(earthEvt => (
+                                        <option key={earthEvt.id} value={earthEvt.id}>{earthEvt.title}</option>
+                                    ))}
+                                </Form.Select>
+                            </Form.Group>
+                        </Form>
+                    </Container>
+                </div>
+            </div>
         </>
     )
 }

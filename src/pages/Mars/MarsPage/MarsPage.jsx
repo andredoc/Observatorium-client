@@ -10,17 +10,20 @@ function MarsPage() {
 
     return (
         <>
-            <div className="mars-canvas-container">
-                <MarsIntro />
-                <Canvas style={{ height: 250 }}>
-                    <Suspense fallback={null}>
-                        <Mars3D />
-                    </Suspense>
-                </Canvas>
-                <Outlet />
+            <div className="stars">
+                <div className="twinkling">
+                    <div className="mars-canvas-container">
+                        <MarsIntro />
+                        <Canvas style={{ height: 250 }}>
+                            <Suspense fallback={null}>
+                                <Mars3D />
+                            </Suspense>
+                        </Canvas>
+                        <Outlet />
+                    </div>
+                </div>
             </div>
         </>
-
     )
 }
 

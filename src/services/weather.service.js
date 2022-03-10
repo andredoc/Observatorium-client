@@ -11,7 +11,6 @@ class WeatherService {
     getWeather() {
         return this.api.get(`?feed=weather&category=msl&feedtype=json`)
     }
-
 }
 
 const weatherService = new WeatherService()

@@ -13,8 +13,6 @@ function EditCommentForm({ closeModal, comment, commentId, getComments }) {
         setEditCommentData({ comment })
     }, [])
 
-    //    const { comment } = editCommentData
-
     const { user } = useContext(AuthContext)
 
     const handleInputChange = e => {
@@ -29,8 +27,6 @@ function EditCommentForm({ closeModal, comment, commentId, getComments }) {
     const handleSubmit = e => {
         e.preventDefault()
 
-        console.log(commentId, editCommentData)
-
         ratingService
             .editComment(commentId, { ...editCommentData })
             .then(({ data }) => {
@@ -42,8 +38,6 @@ function EditCommentForm({ closeModal, comment, commentId, getComments }) {
 
     return (
         <>
-
-
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="comment">
                     <Form.Label>Comment</Form.Label>
@@ -53,7 +47,6 @@ function EditCommentForm({ closeModal, comment, commentId, getComments }) {
                 <div className="d-grid gap-2">
                     <Button className="formButton" variant="dark" type="submit" >Edit Comment</Button>
                 </div>
-
             </Form >
         </>
     )

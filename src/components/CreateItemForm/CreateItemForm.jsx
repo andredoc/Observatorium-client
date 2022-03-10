@@ -18,11 +18,8 @@ function CreateItemForm({closeModal,refreshItems}) {
     })
 
     const [loadingImage, setLoadingImage] = useState(false)
-
     const { name, img, description, location, size } = itemData
-
     const { user } = useContext(AuthContext)
-
 
     const handleInputChange = e => {
         const { value, name } = e.target
@@ -64,7 +61,6 @@ function CreateItemForm({closeModal,refreshItems}) {
     return(
 
         <>
-
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="title">
                     <Form.Label>Name</Form.Label>
@@ -94,10 +90,8 @@ function CreateItemForm({closeModal,refreshItems}) {
                 <div className="d-grid gap-2">
                     <Button className="formButton" type="submit" disabled={loadingImage}>{loadingImage ? "Wait a moment please..." : "Create Item"}</Button>
                 </div>
-
             </Form >
-        </>
-        
+        </>     
     )
 }
 

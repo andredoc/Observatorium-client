@@ -62,7 +62,6 @@ function EditItemForm({ closeModal, refreshItems, item }) {
 
     return (
         <>
-
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="title">
                     <Form.Label>Name</Form.Label>
@@ -92,7 +91,6 @@ function EditItemForm({ closeModal, refreshItems, item }) {
                 <div className="d-grid gap-2">
                     <Button className="formButton" variant="dark" type="submit" disabled={loadingImage}>{loadingImage ? "Wait a moment please..." : "Edit Item"}</Button>
                 </div>
-
             </Form >
         </>
     )

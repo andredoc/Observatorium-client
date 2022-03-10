@@ -14,12 +14,11 @@ function ItemCard({ name, img, _id, owner }) {
                 <Card.Title>{name}</Card.Title>
                 <Link to={`/item/${_id}`} className="cardLink">
                     <div className="d-grid gap-2">
-                        <Button className="cardButton">Ver detalles</Button>
+                        <Button className="cardButton">Item Details</Button>
                     </div>
                 </Link>
             </Card.Body>
         </Card >
-
     )
 }
 

@@ -13,20 +13,16 @@ function EditProfileForm({ closeModal }) {
         imgProfile: ""
     })
 
-
     const [loadingImage, setLoadingImage] = useState(false)
-
     const { user, authenticateUser, storeToken } = useContext(AuthContext)
 
     const handleInputChange = e => {
         const { value, name } = e.target
-
         setEditProfile({
             ...editProfile,
             [name]: value
         })
     }
-
 
     const uploadProfileImage = e => {
         setLoadingImage(true)
