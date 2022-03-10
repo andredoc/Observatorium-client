@@ -5,12 +5,12 @@ import "./MarsIntro.css"
 function MarsIntro() {
     return (
         <div className="topContainer">
-            <h3 className="marsSlogan">
+            {/* <h3 className="marsSlogan">
                 <span className="capital">Mars: The Red Planet</span><br /><br />
                 Mars may once have been warm and wet, <br />
                 it is now a cold, dry, barren place. <br />
                 The atmosphere is thin and mainly carbon dioxide.
-            </h3>
+            </h3> */}
             <br />
             <div className="buttonContainer">
                 <Link to="weather">
