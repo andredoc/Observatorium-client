@@ -54,14 +54,11 @@ function AuthProviderWrapper(props) {
 
     useEffect(() => authenticateUser(), [])
 
-
-
     return (
         <AuthContext.Provider value={{ isLoggedIn, isLoading, isAdmin, user, getToken, storeToken, authenticateUser, logOutUser }}>
             {props.children}
         </AuthContext.Provider>
     )
 }
-
 
 export { AuthContext, AuthProviderWrapper }

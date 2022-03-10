@@ -14,7 +14,6 @@ function ItemDetailsPage({ refreshItems }) {
     const { user, isLoggedIn } = useContext(AuthContext)
     const navigate = useNavigate()
     const [itemDetails, setItemDetails] = useState({})
-    // const [comments, setComments] = useState([])
     const [likeItem, setLikeItem] = useState(false)
     const [showModal, setShowModal] = useState(false)
     const { item_id } = useParams()
@@ -38,35 +37,10 @@ function ItemDetailsPage({ refreshItems }) {
             .getOneItem(item_id)
             .then(({ data }) => {
                 setItemDetails(data.item)
-                // setComments(data.ratings)
             })
             .catch(err => console.log(err))
 
     }
-
-    // const handleInputChange = e => {
-    //     const { value, name } = e.target
-
-    //     setCommentData({
-    //         ...commentData,
-    //         [name]: value
-    //     })
-    // }
-
-    // const handleSubmit = e => {
-    //     e.preventDefault()
-
-    //     ratingService
-    //         .createComment(item_id, { ...commentData, owner: user._id })
-    //         .then(({data}) => {
-    //             setCommentData({comment: ''})
-    //             const {comment, user, item, _id} = data
-    //             // setComments((previousComment) => [...previousComment, { comment, user, item, _id }])
-    //             refreshItems()
-    //         })
-    //         .catch(err => console.log(err))
-
-    // }
 
     const handleLikeItem = () => {
 
@@ -92,12 +66,6 @@ function ItemDetailsPage({ refreshItems }) {
                 navigate("/items-list")
             })
             .catch(err => console.log(err))
-    }
-
-    
-
-    const handleLike = () => {
-
     }
 
     const handleModalClose = () => setShowModal(false)
@@ -147,17 +115,7 @@ function ItemDetailsPage({ refreshItems }) {
 
             <br/><br/>
 
-                    
-
-
             <CommentBox/>
-
-                
-
-
-                           
-
-            
 
             <Modal show={showModal} onHide={handleModalClose} size="lg">
                 <Modal.Header closeButton className="itemsPageModal">

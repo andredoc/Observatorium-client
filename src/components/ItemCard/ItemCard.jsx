@@ -19,7 +19,6 @@ function ItemCard({ name, img, _id, owner }) {
                 </Link>
             </Card.Body>
         </Card >
-
     )
 }
 

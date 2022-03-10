@@ -8,7 +8,6 @@ import "./ItemsPage.css"
 import Pagination from "../../components/Pagination/Pagination"
 
 
-
 function ItemsPage() {
 
     const [items, setItems] = useState([])
@@ -48,7 +47,6 @@ function ItemsPage() {
                     Item Page
                     {isLoggedIn && <Button className="createCardButton" onClick={handleModalOpen}>Create New Item</Button>}
                 </h1>
-                {/* <ItemList items={items} /> */}
                 <ItemList items={currentCards} />
                 <Pagination
                     cardsPerPage={cardsPerPage}
@@ -66,8 +64,6 @@ function ItemsPage() {
                 </Modal.Body>
             </Modal>
         </>
-        
-
     )
 }
 

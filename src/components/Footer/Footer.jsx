@@ -1,8 +1,7 @@
 import './Footer.css'
 import { useLocation } from 'react-router-dom'
 
-
-const Footer = ({ path }) => {
+const Footer = () => {
     const { pathname } = useLocation()
     if (pathname === "/items-list") {
         return null

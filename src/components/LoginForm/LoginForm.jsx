@@ -33,7 +33,6 @@ function LoginForm() {
         authService
             .login(loginForm)
             .then(({ data }) => {
-                //console.log("JWT token", data.authToken)
                 storeToken(data.authToken)
                 authenticateUser()
                 setShowMessage(true)
@@ -44,7 +43,6 @@ function LoginForm() {
                 console.log(err)
                 res.status(400).json({ message: "Invalid data request" })
             })
-
     }
 
     return (
@@ -63,10 +61,8 @@ function LoginForm() {
 
             <Button className="loginFormButton" type="submit" style={{ width: '100%' }}>Login</Button>
 
-
         </Form>
     )
 }
-
 
 export default LoginForm

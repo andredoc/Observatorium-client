@@ -41,7 +41,6 @@ function MarsWeatherPage() {
                 }
             </Carousel >
         </div>
-
     )
 }
 

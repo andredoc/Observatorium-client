@@ -17,7 +17,6 @@ import Earth3dPage from "../pages/Earth3d/Earth3d"
 import PrivateRouteAdmin from "./PrivateRouteAdmin"
 import ErrorPage from "./../pages/ErrorPage/ErrorPage"
 
-
 const AppRoutes = () => {
 
     return (
@@ -36,18 +35,11 @@ const AppRoutes = () => {
                 <Route path="" element={<ProfilePage />} />
                 <Route path="/profile/userItems" element={<UserItemsPage />} />
             </Route>
-
-
             <Route path="/admin" element={<PrivateRouteAdmin />}>
                 <Route path="" element={<AdminPage />} />
             </Route>
-
-
             <Route path="/apod" element={<HomePage />} />
-            {/* <Route path="/profile/my-items" element={<profile />} />  // Por revisarlo */}
-            {/* Crear ruta para página 404 ERROR */}
             <Route path="*" element={<ErrorPage />} />
-
         </Routes>
     )
 }

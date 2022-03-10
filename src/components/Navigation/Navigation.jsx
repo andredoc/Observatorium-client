@@ -9,7 +9,6 @@ function Navigation() {
 
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext)
 
-
     return (
         < Navbar bg="dark" variant='dark' expand="lg" style={{ marginBottom: 30 }}>
             <Container>
@@ -54,7 +53,6 @@ function Navigation() {
 
                             <Dropdown>
                                 <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
-                                    {/* <img src="./../../logo192.png" style={{ width: "50px", objectFit: "cover" }} /> */}
                                     <img src={user?.imgProfile} style={{ width: "50px", objectFit: "cover" }} />
 
                                 </Dropdown.Toggle>
@@ -77,7 +75,6 @@ function Navigation() {
                             </Dropdown>
                         </>
                 }
-
             </Container>
         </Navbar >
     )

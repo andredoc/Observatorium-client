@@ -63,21 +63,14 @@ function CommentBox() {
             .then(({ data }) => {
                 console.log(data)
                 getComments()
-                // const updatedComments = comments.filter(({_id}) => _id !== data._id )
-                // setComments(updatedComments)
-
-
             })
             .catch(err => console.log(err))
     }
-
-
 
     const handleModalClose = () => setShowModal(false)
     const handleModalOpen = (comment) => {
         setEditComment(comment)
         setShowModal(true)
-
     }
 
     return (

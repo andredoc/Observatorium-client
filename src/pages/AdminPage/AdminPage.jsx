@@ -17,7 +17,6 @@ function AdminPage() {
     const { user } = useContext(AuthContext)
     const { item_id } = useParams()
 
-
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -87,11 +86,8 @@ function AdminPage() {
     return (
 
         <>
-
             <h1>Admin Page</h1>
-
             <hr/>
-
 
         <div className="allDiv"> 
 
@@ -137,11 +133,8 @@ function AdminPage() {
                 )
             })}
             </div>
-
-
         </div>
         </>
-
     )
 }
 

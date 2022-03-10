@@ -3,14 +3,12 @@ import { Container, Modal, Button } from "react-bootstrap"
 import EditProfileForm from "../../components/EditProfileForm/EditProfileForm"
 import { AuthContext } from "../../context/auth.context"
 import userService from "../../services/user.service"
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import "./ProfilePage.css"
 
 function ProfilePage() {
 
-    // const { user_id } = useParams()
     const { user, logOutUser } = useContext(AuthContext)
-
     const [showModal, setShowModal] = useState(false)
 
     const navigate = useNavigate()

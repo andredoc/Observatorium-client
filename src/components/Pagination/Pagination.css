@@ -1,0 +1,16 @@
+.pagination {
+    justify-content: center;
+}
+.page-item {
+    box-shadow: 1px 2px 10px 3px rgb(43, 222, 235);
+}
+
+.page-link {
+    position: relative;
+    display: block;
+    color: rgb(43, 222, 235);
+    text-decoration: none;
+    background-color: black;
+    border: 1px solid #dee2e6;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}

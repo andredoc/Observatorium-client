@@ -10,7 +10,6 @@ import "./UserItemsPage.css"
 
 function UserItemsPage() {
 
-
     const [items, setItem] = useState([])
     const [selectEditItem, setSelectEditItem] = useState()
     const [comments, setComments] = useState([])
@@ -19,20 +18,14 @@ function UserItemsPage() {
     const [showModal, setShowModal] = useState(false)
     const [showCommentModal, setShowCommentModal] = useState(false)
 
-    
-    
-
-
     const { user } = useContext(AuthContext)
 
     const navigate = useNavigate()
-
 
     useEffect(() => {
         loadItem()
         loadComments()
     }, [user])
-
 
     const loadItem = () => {
         itemsService
@@ -71,9 +64,6 @@ function UserItemsPage() {
                 })
     }
 
-    
-
-
     const handleModalClose = () => setShowModal(false)
     const handleModalOpen = (item) => {
         setSelectEditItem(item)
@@ -110,8 +100,7 @@ function UserItemsPage() {
                                 {user && user?._id === item?.owner && <Button className="mx-auto button" variant="danger" onClick={() => deleteItem(item)}>Delete</Button>}
                                 <hr/>
                             </Row>
-                        </>
-                        
+                        </>     
                     )
                 })}</p>
                 </div>
@@ -131,10 +120,7 @@ function UserItemsPage() {
                     )
                 })}</p>
                 </div>
-
             </div>
-
-
 
             <Modal show={showModal} onHide={handleModalClose} size="lg">
                 <Modal.Header closeButton className="itemsPageModal">
@@ -153,8 +139,7 @@ function UserItemsPage() {
                     <EditCommentForm closeModal={handleCommentModalClose} comment={editComment?.comment} commentId={editComment?._id} getComments={loadComments} />
                 </Modal.Body>
             </Modal>
-        </div>
-        
+        </div> 
     )
 }
 

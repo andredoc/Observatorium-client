@@ -34,7 +34,6 @@ function MarsCarouselPage() {
                 }
             </Carousel>
         </div>
-
     )
 }
 
