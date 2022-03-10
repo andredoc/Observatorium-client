@@ -4,25 +4,25 @@ import { useLocation } from 'react-router-dom'
 const Footer = () => {
     const { pathname } = useLocation()
     if (pathname === "/items-list") {
-        return null
+        return <div className="transparent-footer"/>
     } else if (pathname === "/item/:item_id") {
-        return null
+        return <div className="transparent-footer"/>
     } else if (pathname === "/mars") {
-        return null
+        return <div className="transparent-footer"/>
     } else if (pathname === "/mars/carousel") {
-        return null
+        return <div className="transparent-footer"/>
     } else if (pathname === "/mars/weather") {
-        return null
+        return <div className="transparent-footer" />
     } else if (pathname === "/earth") {
-        return null
+        return <div className="transparent-footer" />
     } else if (pathname === "/apod") {
-        return null
+        return <div className="transparent-footer" />
     } else if (pathname === "/profile") {
-        return null
+        return <div className="transparent-footer" />
     } else if (pathname === "/profile/userItems") {
-        return null
+        return <div className="transparent-footer"/>
     } else if (pathname === "/admin") {
-        return null
+        return <div className="transparent-footer"/>
     } else if (pathname === "/login") {
         return null
     } else if (pathname === "/signup") {
