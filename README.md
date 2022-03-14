@@ -83,8 +83,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 |     Route    	| /mars  			          | MarsPage                |            |
 |     Route    	| /mars/carousel		      | MarsCarouselPage        |     
 |     Route    	| /mars/weather  		      | MarsWeatherPage         |     
-|     Route    	| /profile 			          | ProfilePage             | :marca_de_verificación_blanca: |
-|     Route    	| /profile/userItems	      | UserItemsPage  |:marca_de_verificación_blanca:            
-|     Route    	| /admin  				      | AdminPage      |     :marca_de_verificación_blanca:     |
+|     Route    	| /profile 			          | ProfilePage             | ✅ |
+|     Route    	| /profile/userItems	      | UserItemsPage  |✅          
+|     Route    	| /admin  				      | AdminPage      |     ✅     |
 |     Route    	| /apod  		              | PictureOfDay            |         |
 |     Route    	| *		                      | ErrorPage            |          |
