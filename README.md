@@ -69,3 +69,22 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+# Observatorium
+#Client
+#React-Routes
+|  Routes       |    URI path  		 		  |    Description          |  Protected |
+| ------------- | ----------------------------|-------------------------|------------|
+|     Route    	| /  				 		  | Earth3dPage             |            |
+|     Route    	| /signup  				      | SignupPage              |            |
+|     Route    	| /login 				 	  | LoginPage               |            |
+|     Route    	| /items-list  				  | ItemsPage               |            |
+|     Route    	| /item/:item_id  			  | ItemDetailsPage         |            |
+|     Route    	| /earth				      | EarthPage               |            |
+|     Route    	| /mars  			          | MarsPage                |            |
+|     Route    	| /mars/carousel		      | MarsCarouselPage        |     
+|     Route    	| /mars/weather  		      | MarsWeatherPage         |     
+|     Route    	| /profile 			          | ProfilePage             | :marca_de_verificación_blanca: |
+|     Route    	| /profile/userItems	      | UserItemsPage  |:marca_de_verificación_blanca:            
+|     Route    	| /admin  				      | AdminPage      |     :marca_de_verificación_blanca:     |
+|     Route    	| /apod  		              | PictureOfDay            |         |
+|     Route    	| *		                      | ErrorPage            |          |
