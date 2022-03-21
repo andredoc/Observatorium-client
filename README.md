@@ -101,23 +101,23 @@ LOGIN PAGE
 
 EARTH EVENT TRACKER MAP
 
-![Alt text](/src/assets/images/screen-images/screen__earth_event_tracker_map.png)
+![Alt text](/src/assets/images/screen-images/screen_earth_event_tracker_map.png)
 
 EARTH PRECIPITATION RATE
 
-![Alt text](/src/assets/images/screen-images/screen__earth_precipitation_rate.png)
+![Alt text](/src/assets/images/screen-images/screen_earth_precipitation_rate.png)
 
 EARTH TRUE COLOR MAP LAYER
 
-![Alt text](/src/assets/images/screen-images/screen__earth_trueColor.png)
+![Alt text](/src/assets/images/screen-images/screen_earth_trueColor.png)
 
 ITEMS LIST PAGE
 
-![Alt text](/src/assets/images/screen-images/screen__space_list.png)
+![Alt text](/src/assets/images/screen-images/screen_item_space_list.png)
 
 ITEM DETAILS PAGE
 
-![Alt text](/src/assets/images/screen-images/screen__space_details.png)
+![Alt text](/src/assets/images/screen-images/screen_item_space_details.png)
 
 MARS CAROUSEL
 
@@ -125,8 +125,8 @@ MARS CAROUSEL
 
 PICTURE OF THE DAY
 
-![Alt text](/src/assets/images/screen-images/screen__pic_of_day.png)
+![Alt text](/src/assets/images/screen-images/screen_pic_of_day.png)
 
 ADMINISTRATOR PAGE
 
-![Alt text](/src/assets/images/screen-images/screen__administration_page.png)
+![Alt text](/src/assets/images/screen-images/screen_administration_page.png)
