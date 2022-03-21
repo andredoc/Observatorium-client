@@ -88,3 +88,45 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 |     Route    	| /admin  				      | AdminPage      |     :marca_de_verificación_blanca:     |
 |     Route    	| /apod  		              | PictureOfDay            |         |
 |     Route    	| *		                      | ErrorPage            |          |
+
+# Observatorium Screenshots
+
+HOME PAGE
+
+![Alt text](/src/assets/images/screen-images/screen_home_page.png)
+
+LOGIN PAGE
+
+![Alt text](/src/assets/images/screen-images/screen_login.png)
+
+EARTH EVENT TRACKER MAP
+
+![Alt text](/src/assets/images/screen-images/screen__earth_event_tracker_map.png)
+
+EARTH PRECIPITATION RATE
+
+![Alt text](/src/assets/images/screen-images/screen__earth_precipitation_rate.png)
+
+EARTH TRUE COLOR MAP LAYER
+
+![Alt text](/src/assets/images/screen-images/screen__earth_trueColor.png)
+
+ITEMS LIST PAGE
+
+![Alt text](/src/assets/images/screen-images/screen__space_list.png)
+
+ITEM DETAILS PAGE
+
+![Alt text](/src/assets/images/screen-images/screen__space_details.png)
+
+MARS CAROUSEL
+
+![Alt text](/src/assets/images/screen-images/screen_mars_carousel.png)
+
+PICTURE OF THE DAY
+
+![Alt text](/src/assets/images/screen-images/screen__pic_of_day.png)
+
+ADMINISTRATOR PAGE
+
+![Alt text](/src/assets/images/screen-images/screen__administration_page.png)
